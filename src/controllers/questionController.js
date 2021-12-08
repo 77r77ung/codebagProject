@@ -4,8 +4,17 @@ const pool = require('../../database/codebag_db')
 exports.addQuestion = async(req, res) => {
     const {question_title, question_content, question_date, views, like_count, users_users_uid} = req.body;
     const {question_uid} = req.params;
+
+    let session = req.session.users_uid;
     try{
-        await questionService.addQuestion(question_uid, question_title, question_content, question_date, views, like_count, users_users_uid);
+        if(session != Null){
+            await questionService.addQuestion(question_uid, question_title, question_content, question_date, views, like_count, users_users_uid);
+        }else{
+            return res.send(`<script type="text/javascript">
+                alert("로그인 후 작성해주세요."); 
+                location.href='/';
+                </script>`);
+        }
         return res.redirect('/');
     }catch(err){
         return res.status(500).json(err);
@@ -36,12 +45,11 @@ exports.deleteQuestion = async (req, res) => {
 exports.listQuestion = async (req, res) => {
     try{
         let question_info = await questionService.listQuestion();
-        let session = req.session.users_uid;
         let users_nickname = req.session.users_nickname;
         console.log(users_nickname)
         return res.render('main', {
             page: './question/listquestion',
-            session: session,
+            session: users_nickname,
             question_info: question_info,
             users_nickname : users_nickname
         })
