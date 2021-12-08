@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <br />
+                    <br />
+                    <form action="/users/signup" method="post">
+
+                        <div class="form-grop row">
+                            <label for="ID" class="col-md-4 col-form-label text-md-right">ID</label>
+                            <div class="col-md-6">
+                                <input type="text" id="id" class="form-control" name="users_uid" required autofocus>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="form-group row">
+                            <label for="PASSWORD" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <div class="col-md-6">
+                                <input type="password" id="pw" class="form-control" name="users_password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="NAME" class="col-md-4 col-form-label text-md-right">Nickname</label>
+                            <div class="col-md-6">
+                                <input type="text" id="name" class="form-control" name="users_nickname" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="NAME" class="col-md-4 col-form-label text-md-right">Tel</label>
+                            <div class="col-md-6">
+                                <input type="text" id="tel" class="form-control" name="users_tel" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="NAME" class="col-md-4 col-form-label text-md-right">Email</label>
+                            <div class="col-md-6">
+                                <input type="text" id="Email" class="form-control" name="users_email" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="NAME" class="col-md-4 col-form-label text-md-right">Job</label>
+                            <div class="col-md-6">
+                                <input type="text" id="Job" class="form-control" name="users_job" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="NAME" class="col-md-4 col-form-label text-md-right">Areas of Interest</label>
+                            <div class="col-md-6" >
+                                <input type="text" id="genre" class="form-control" name="users_genre" placeholder="관심분야를 입력해주세요."  required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary btn-block" style="background-color:#395CDB;">
+                                SIGN UP
+                            </button>
+                        </div>
+                    </form>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
