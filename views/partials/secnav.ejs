@@ -1,14 +1,17 @@
-<div class="card text-center">
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-            <img src="./images/menu.png" width ="15" heigh="15" alt=""  style="margin-left: 20px; margin-right: 20px; margin-top: 10px;">
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">최신순</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">인기순</a>
-        </li>
-      </ul>
+<div class="container">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-link active" id="nav-newpost-tab" data-toggle="tab" href="#nav-newpost" role="tab" aria-controls="nav-newpost" aria-selected="true">최신순</a>
+      <a class="nav-link" id="nav-hotpost-tab" data-toggle="tab" href="#nav-hotpost" role="tab" aria-controls="nav-hotpost" aria-selected="false">인기순</a>
     </div>
+  </nav>
+  <!-- TODO: 메뉴 버튼 추가할 것! -->
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-newpost" role="tabpanel" aria-labelledby="nav-newpost-tab">
+      <%- include(page) %>
+    </div>
+    <div class="tab-pane fade" id="nav-hotpost" role="tabpanel" aria-labelledby="nav-hotpost-tab">
+      <%- include(page) %>
+    </div>
+  </div>
+</div>
