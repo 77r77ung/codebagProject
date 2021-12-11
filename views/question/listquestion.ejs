@@ -1,18 +1,45 @@
 <div class="container">
-  <div class="columns">
-    <% for(let question of question_info) { %>
-      <div style="margin-left: 3%; margin-top: 1%; display: flex; width: 2000px; height: 400px;">
-        <div class="card mb-3">
-          <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question.question_uid %>"><%= question.question_title %></a></h5>
-            <p class="card-text"><%= question.question_content %> </p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-          
-      </div>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-link active" id="nav-newpost-tab" data-toggle="tab" href="#nav-newpost" role="tab" aria-controls="nav-newpost" aria-selected="true">최신순</a>
+      <a class="nav-link" id="nav-hotpost-tab" data-toggle="tab" href="#nav-hotpost" role="tab" aria-controls="nav-hotpost" aria-selected="false">인기순</a>
     </div>
-    <% } %>
+  </nav>
+  <!-- TODO: 메뉴 버튼 추가할 것! -->
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-newpost" role="tabpanel" aria-labelledby="nav-newpost-tab">
+      <div class="container">
+        <div class="row justify-content-center my-3">
+          <% question_info.forEach(function(question_info){ %>
+            <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+              <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
+                <p class="card-text"><%= question_info.question_content %> </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div> <!-- container -->
+    </div>
+    <div class="tab-pane fade" id="nav-hotpost" role="tabpanel" aria-labelledby="nav-hotpost-tab">
+      <div class="container">
+        <div class="row justify-content-center my-3">
+          <% question_info.forEach(function(question_info){ %>
+            <% if(question_info.views >= 100) {%>
+              <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+                <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
+                  <p class="card-text"><%= question_info.question_content %> </p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            <% } %>
+          <% }) %>
+        </div>
+      </div> <!-- container -->
+    </div>
   </div>
 </div>
