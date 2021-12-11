@@ -9,40 +9,36 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-newpost" role="tabpanel" aria-labelledby="nav-newpost-tab">
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-3" style="margin-top: 2rem;">
-          <% for(let question of question_info) { %>
-            <div class="col mb-4">
-              <div class="card h-100">
-                <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question.question_uid %>"><%= question.question_title %></a></h5>
-                  <p class="card-text"><%= question.question_content %> </p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+        <div class="row justify-content-center my-3">
+          <% question_info.forEach(function(question_info){ %>
+            <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+              <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
+                <p class="card-text"><%= question_info.question_content %> </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
             </div>
-          <% } %>
-        </div> <!-- row -->
+          <% }) %>
+        </div>
       </div> <!-- container -->
     </div>
     <div class="tab-pane fade" id="nav-hotpost" role="tabpanel" aria-labelledby="nav-hotpost-tab">
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-3" style="margin-top: 2rem;">
-          <% for(let question of question_info) { %>
-            <% if(question.views >= 200) { %> <!-- TODO: 시간 조건도 넣어서 1시간에 조회수 100 이상일 시 메인에 노출 -->
-              <div class="col mb-4">
-                <div class="card h-100">
-                  <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question.question_uid %>"><%= question.question_title %></a></h5>
-                    <p class="card-text"><%= question.question_content %> </p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
+        <div class="row justify-content-center my-3">
+          <% question_info.forEach(function(question_info){ %>
+            <% if(question_info.views >= 100) {%>
+              <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+                <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
+                  <p class="card-text"><%= question_info.question_content %> </p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
               </div>
             <% } %>
-          <% } %>
-        </div> <!-- row -->
+          <% }) %>
+        </div>
       </div> <!-- container -->
     </div>
   </div>
