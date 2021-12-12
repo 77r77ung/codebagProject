@@ -5,7 +5,8 @@
     <button class="btn btn-outline-light" type="submit">검색</button>
   </form>
 </div>
-<div class="container">
+<div>
+<div class="container" style="display: inline-block">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-newpost-tab" data-toggle="tab" href="#nav-newpost" role="tab" aria-controls="nav-newpost" aria-selected="true">최신순</a>
@@ -13,7 +14,7 @@
     </div>
   </nav>
   <!-- TODO: 메뉴 버튼 추가할 것! -->
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content" id="nav-tabContent" >
     <div class="tab-pane fade show active" id="nav-newpost" role="tabpanel" aria-labelledby="nav-newpost-tab">
       <div class="container">
         <div class="row justify-content-center my-3">
@@ -50,3 +51,69 @@
     </div>
   </div>
 </div>
+
+<div style="display: inline-flex; position: fixed;">
+  <ul id="messages" class="chatul" style="max-width: 400px;"></ul>
+  <div class="inputContainer">
+    <form>
+      <input class="chatinput" id="msgInput" placeholder="typing something !" type="text"/>
+      <button>SEND</button>
+    </form>
+  </div>
+</div>
+</div>
+
+<style>
+  .inputContainer {
+    bottom: 0px;
+    border-radius: 20px;
+    position: absolute;
+    height: 15%;
+    width: 100%;
+    text-align: center;
+  }
+  .chatul {
+    height: 100%;
+    width: 400px;
+    overflow-y: scroll;
+    margin-right: 40px;
+  }
+  .chatli {
+    list-style-type : none;
+    font-weight: 300;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: break-spaces;
+  }
+  .chatinput {
+    height: 100%;
+    width: 400px;
+    border-radius: 8px;
+    margin: 0px 10px 20px 10px;
+    box-shadow: inset 4px 4px 5px #eeeeee, inset -4px -4px 5px #ffffff !important;
+    border: 2px #646a73;
+    font-size: 14px;
+  }
+</style>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(() => {
+    const name = prompt('What is your name?');
+    const socket = io();
+  
+    $('form').submit(() => {
+      let msg = {name: name, messege:$('#msgInput').val()} 
+      socket.emit('chat-msg-1', msg);
+      $('#msgInput').val('');
+      console.log(msg);
+      return false;
+    });
+  
+    socket.on('chat-msg-2', (msg) => {
+      $('#messages').append($('<li class="chatli">').text(msg.name + '  :  ' +
+      msg.messege));
+    });
+  });
+</script>

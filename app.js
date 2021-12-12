@@ -25,6 +25,19 @@ var mainRouter = require('./src/routes/mainRoute');
 var questionRouter = require('./src/routes/questionRoute');
 
 var app = express();
+app.io = require('socket.io')();
+
+app.io.on('connection',(socket) => {
+  console.log('socket connect !');
+
+  socket.on('disconnect', () => {
+      console.log('socket disconnect !');
+  });
+
+  socket.on('chat-msg-1', (msg) => {
+    app.io.emit('chat-msg-2', msg);
+  });
+});
 
 // session 설정
 app.use(session({
