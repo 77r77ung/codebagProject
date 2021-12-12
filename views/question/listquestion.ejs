@@ -5,12 +5,13 @@
     <button class="btn btn-outline-light" type="submit">검색</button>
   </form>
 </div>
-<div>
-<div class="container" style="display: inline-block">
+
+<div class="container">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-newpost-tab" data-toggle="tab" href="#nav-newpost" role="tab" aria-controls="nav-newpost" aria-selected="true">최신순</a>
       <a class="nav-link" id="nav-hotpost-tab" data-toggle="tab" href="#nav-hotpost" role="tab" aria-controls="nav-hotpost" aria-selected="false">인기순</a>
+      <a class="nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">채팅</a>
     </div>
   </nav>
   <!-- TODO: 메뉴 버튼 추가할 것! -->
@@ -52,18 +53,57 @@
   </div>
 </div>
 
-<div style="display: inline-flex; position: fixed;">
-  <ul id="messages" class="chatul" style="max-width: 400px;"></ul>
-  <div class="inputContainer">
-    <form>
-      <input class="chatinput" id="msgInput" placeholder="typing something !" type="text"/>
-      <button>SEND</button>
-    </form>
-  </div>
-</div>
-</div>
-
-<style>
+<!-- <style>
+  .ul {
+    height: calc(100% - 38%);
+    overflow-y: scroll;
+    margin-right: 40px;
+  }
+  .li {
+    list-style-type : none;
+    padding: 10px;
+    font-weight: 300;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: break-spaces;
+  }
+  .p {
+    color: #296dc2;
+    font-weight: 300;
+    font-size: 30px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .input {
+    height: 50%;
+    width: 60%;
+    border-radius: 8px;
+    margin: 0px 10px 20px 10px;
+    box-shadow: inset 4px 4px 5px #eeeeee, inset -4px -4px 5px #ffffff !important;
+    border: 2px #646a73;
+    font-size: 14px;
+  }
+  
+  .button {
+    margin: 0px 10px 20px 10px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px #e9e9e9, -8px -8px 15px #ffffff;
+    height: 50%;
+    width: 20%;
+    border: 0px;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  .chatContainer {
+    margin: 5% auto;
+    position: relative;
+    width: 100%;
+    max-width: 70%;
+    box-shadow: 8px 8px 15px #e9e9e9, -8px -8px 15px #ffffff;
+    height: 80%;
+    border-radius: 20px;
+    padding: 5px 0px;
+  }
   .inputContainer {
     bottom: 0px;
     border-radius: 20px;
@@ -71,28 +111,6 @@
     height: 15%;
     width: 100%;
     text-align: center;
-  }
-  .chatul {
-    height: 100%;
-    width: 400px;
-    overflow-y: scroll;
-    margin-right: 40px;
-  }
-  .chatli {
-    list-style-type : none;
-    font-weight: 300;
-    overflow: auto;
-    text-overflow: ellipsis;
-    white-space: break-spaces;
-  }
-  .chatinput {
-    height: 100%;
-    width: 400px;
-    border-radius: 8px;
-    margin: 0px 10px 20px 10px;
-    box-shadow: inset 4px 4px 5px #eeeeee, inset -4px -4px 5px #ffffff !important;
-    border: 2px #646a73;
-    font-size: 14px;
   }
 </style>
 
@@ -116,4 +134,4 @@
       msg.messege));
     });
   });
-</script>
+</script> -->

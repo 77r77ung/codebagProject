@@ -3,15 +3,19 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <p><%= detail_info[0].question_uid %></p>
+          <p><%= detail_info[0].question_title %></p>
         </div>
         <br />
         <div class="card-body">
           <h5 class="card-title">
-            <p><%= detail_info[0].question_title %></p>
+            <p><%= detail_info[0].question_content %></p>
           </h5>
-          <p class="card-text">amount: <%= detail_info[0].question_content %></p>
           <br />
+        </div>
+        <div class="card-footer text-muted">
+          <p>
+            <%= detail_info[0].question_date %>
+          </p>
         </div>
       </div>
     </div>

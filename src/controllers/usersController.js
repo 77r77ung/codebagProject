@@ -65,7 +65,7 @@ exports.signUpPage = async(req, res) => {
 
 exports.myPage = async (req, res) => {
     try{
-        const session = req.session.users_uid;
+        let session = req.session.users_uid;
         let mypage = await usersServices.myPage(session);
         return res.render('main', {
             page: './users/mypage',
