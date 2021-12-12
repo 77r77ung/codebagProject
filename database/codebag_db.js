@@ -6,7 +6,7 @@ DB에 연결된 Connection을 미리 만들어 둔 후 Pool에 보관했다가
 const pool = mysql.createPool({
     host:'localhost',
     user: 'root',
-    password: 'asdf1234',
+    password: '1234',
     port: 3306,
     database: 'codebag'
 })

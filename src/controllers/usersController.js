@@ -56,9 +56,24 @@ exports.signUpPage = async(req, res) => {
         const session = req.session.users_uid;
         return res.render('main', {
             page: './users/signup', 
-            session:session});
+            session:session
+        });
     }catch(err){
         return res.status(500).json(err);
+    }
+}
+
+exports.myPage = async (req, res) => {
+    try{
+        const session = req.session.users_uid;
+        let mypage = await usersServices.myPage(session);
+        return res.render('main', {
+            page: './users/mypage',
+            session: session,
+            mypage: mypage
+        })
+    }catch(err){
+        return res.status(500).json(err)
     }
 }
 

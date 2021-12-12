@@ -22,3 +22,12 @@ exports.signIn = async(users_uid, users_password) => {
         throw Error(err)
     }
 }
+
+exports.myPage = async(users_uid) => {
+    try{
+        let myPage = await pool.query(usersQuery.myPage, [users_uid])
+        return myPage[0]
+    }catch(err){
+        throw Error(err)
+    }
+}

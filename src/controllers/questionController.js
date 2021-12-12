@@ -46,10 +46,9 @@ exports.listQuestion = async (req, res) => {
     try{
         let question_info = await questionService.listQuestion();
         let users_nickname = req.session.users_nickname;
-        console.log(users_nickname)
         return res.render('main', {
             page: './question/listquestion',
-            session: users_nickname,
+            session: req.session.users_uid,
             question_info: question_info,
             users_nickname : users_nickname
         })

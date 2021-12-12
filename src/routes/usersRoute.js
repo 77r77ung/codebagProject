@@ -14,6 +14,9 @@ router.post('/signin', usersController.signIn);
 // 로그인 페이지
 router.get('/signin', usersController.signInPage);
 
+// 마이 페이지
+router.get('/mypage/:users_uid', usersController.myPage);
+
 // 로그아웃
 router.get('/logout', usersController.logout);
 

@@ -1,3 +1,10 @@
+<div class="jumbotron jumbotron-fluid">
+  <form class="form-inline" style="display: inline-flex;">
+    <div class="display">CODEBAG</div>
+    <input class="form-control mr-1" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" style="width: 400px;">
+    <button class="btn btn-outline-light" type="submit">검색</button>
+  </form>
+</div>
 <div class="container">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -11,7 +18,7 @@
       <div class="container">
         <div class="row justify-content-center my-3">
           <% question_info.forEach(function(question_info){ %>
-            <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+            <div class="card col-lg-5 col-md-5 m-2 shadow-sm" style="padding-right: 0; padding-left: 0;">
               <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
               <div class="card-body">
                 <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
@@ -28,7 +35,7 @@
         <div class="row justify-content-center my-3">
           <% question_info.forEach(function(question_info){ %>
             <% if(question_info.views >= 100) {%>
-              <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+              <div class="card col-lg-5 col-md-5 m-2 shadow-sm" style="padding-right: 0; padding-left: 0;">
                 <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
                 <div class="card-body">
                   <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
