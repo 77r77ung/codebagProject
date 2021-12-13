@@ -23,23 +23,16 @@ exports.detail = async (req, res) => {
 
 exports.addQuestion = async(req, res) => {
     const { question_title, question_content } = req.body;
-    const { session } = req.params;
 
     try{
+        let question_uid = String(Math.random()*100000000000000000)
         let question_date = new Date()
         let views = 0
         let like_count = 0
         let users_users_uid = req.session.users_uid;
-        
 
-        if(session != Null){
-            await questionService.addQuestion(question_uid, question_title, question_content, question_date, views, like_count, users_users_uid);
-        }else{
-            return res.send(`<script type="text/javascript">
-                alert("로그인 후 작성해주세요."); 
-                location.href='/';
-                </script>`);
-        }
+        await questionService.addQuestion(question_uid, question_title, question_content, question_date, views, like_count, users_users_uid);
+
         return res.redirect('/');
     }catch(err){
         return res.status(500).json(err);
