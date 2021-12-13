@@ -1,61 +1,150 @@
-<div class="container">
+<div class="container" style="display: inline-block">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-newpost-tab" data-toggle="tab" href="#nav-newpost" role="tab" aria-controls="nav-newpost" aria-selected="true">최신순</a>
       <a class="nav-link" id="nav-hotpost-tab" data-toggle="tab" href="#nav-hotpost" role="tab" aria-controls="nav-hotpost" aria-selected="false">인기순</a>
-      <li class="nav-item"><a class="nav-link" href="/question/addquestion" style="color: #18275C;"> 새 글 작성 </a></li>
     </div>
   </nav>
   <!-- TODO: 메뉴 버튼 추가할 것! -->
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content" id="nav-tabContent" >
     <div class="tab-pane fade show active" id="nav-newpost" role="tabpanel" aria-labelledby="nav-newpost-tab">
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-3" style="margin-top: 2rem;">
-          <% for(let question of question_info) { %>
-            <div class="col mb-4">
-              <div class="card h-100">
-                <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question.question_uid %>"><%= question.question_title %></a></h5>
-                  <p class="card-text"><%= question.question_content %> </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <small class="text-muted" style="margin-right: 15px;"><%= question.users_users_uid %></small>
-                      <small class="text-muted" style="margin-right: 15px;"><%= question.question_date %></small>
-                      <small class="text-muted" style="margin-right: 15px;">
-                        <img src="./images/eye.png" style="width: 10px; height: 10px; margin-right: 5px;"><%= question.views %>
-                      </small>
-                      <small class="text-muted" style="margin-right: 15px;">
-                        <img src="./images/like.png" style="width: 10px; height: 10px; margin-right: 5px;"><%= question.like_count %>
-                      </small>
-                    </div>
+        <div class="row justify-content-center my-3">
+          <% question_info.forEach(function(question_info){ %>
+            <div class="card col-lg-5 col-md-5 m-2 shadow-sm" style="padding-right: 0; padding-left: 0;">
+              <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
+                <p class="card-text"><%= question_info.question_content %> </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <small class="text-muted" style="margin-right: 15px;"><%= question_info.users_users_uid %></small>
+                    <small class="text-muted" style="margin-right: 15px;"><%= question_info.question_date %></small>
+                    <small class="text-muted" style="margin-right: 15px;">
+                      <img src="./images/eye.png" style="width: 10px; height: 10px; margin-right: 5px;"><%= question_info.views %>
+                    </small>
+                    <small class="text-muted" style="margin-right: 15px;">
+                      <img src="./images/like.png" style="width: 10px; height: 10px; margin-right: 5px;"><%= question_info.like_count %>
+                    </small>
                   </div>
                 </div>
               </div>
             </div>
-          <% } %>
-        </div> <!-- row -->
+          <% }) %>
+        </div>
       </div> <!-- container -->
     </div>
     <div class="tab-pane fade" id="nav-hotpost" role="tabpanel" aria-labelledby="nav-hotpost-tab">
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-3" style="margin-top: 2rem;">
-          <% for(let question of question_info) { %>
-            <% if(question.views >= 200) { %> <!-- TODO: 시간 조건도 넣어서 1시간에 조회수 100 이상일 시 메인에 노출 -->
-              <div class="col mb-4">
-                <div class="card h-100">
-                  <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question.question_uid %>"><%= question.question_title %></a></h5>
-                    <p class="card-text"><%= question.question_content %> </p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
+        <div class="row justify-content-center my-3">
+          <% question_info.forEach(function(question_info){ %>
+            <% if(question_info.views >= 100) {%>
+              <div class="card col-lg-5 col-md-5 m-2 shadow-sm" style="padding-right: 0; padding-left: 0;">
+                <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
+                  <p class="card-text"><%= question_info.question_content %> </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <small class="text-muted" style="margin-right: 15px;"><%= question_info.users_users_uid %></small>
+                      <small class="text-muted" style="margin-right: 15px;"><%= question_info.question_date %></small>
+                      <small class="text-muted" style="margin-right: 15px;">
+                        <img src="./images/eye.png" style="width: 10px; height: 10px; margin-right: 5px;"><%= question_info.views %>
+                      </small>
+                      <small class="text-muted" style="margin-right: 15px;">
+                        <img src="./images/like.png" style="width: 10px; height: 10px; margin-right: 5px;"><%= question_info.like_count %>
+                      </small>
+                    </div>
+                  </div>  
                 </div>
               </div>
             <% } %>
-          <% } %>
-        </div> <!-- row -->
+          <% }) %>
+        </div>
       </div> <!-- container -->
     </div>
   </div>
 </div>
+
+<div class="Container">
+  <ul id="messages" class="chatul"></ul>
+</div>
+  <div class="inputContainer">
+    <form>
+      <input class="chatinput" id="msgInput" placeholder="typing something !" type="text"/>
+      <button>SEND</button>
+    </form>
+  </div>
+</div>
+
+
+
+<style>
+  .Container{
+    display: inline-flex;
+    position:fixed;
+    bottom: 15;
+    right: 0;
+    height: 400px;
+    width: 450px;
+    
+  }
+  .inputContainer {
+    bottom: 25;
+    border-radius: 20px;
+    position: fixed;
+    height: 15px;
+    width: 400px;
+    right: 40px;
+    text-align: right;
+  }
+  .chatul {
+    height: 400px;
+    width: 450px;
+    overflow-y: scroll;
+    margin-right: 40px;
+  }
+  .chatli {
+    list-style-type : none;
+    font-weight: 300;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: break-spaces;
+  }
+  .chatinput {
+    height: 100%;
+    width: 400px;
+    border-radius: 8px;
+    margin: 0px 10px 20px 10px;
+    box-shadow: inset 4px 4px 5px #eeeeee, inset -4px -4px 5px #ffffff !important;
+    border: 2px #646a73;
+    font-size: 14px;
+  }
+</style>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(() => {
+    const name = prompt('What is your name?');
+    const socket = io();
+  
+    $('form').submit(() => {
+      let msg = {name: name, messege:$('#msgInput').val()} 
+      socket.emit('chat-msg-1', msg);
+      $('#msgInput').val('');
+      console.log(msg);
+      return false;
+    });
+  
+    socket.on('chat-msg-2', (msg) => {
+      let today = new Date();
+      let hours = today.getHours(); // 
+      let minutes = today.getMinutes(); // 분
+      let seconds = today.getSeconds(); // 초
+      
+      $('#messages').append($('<li class="chatli">').text(hours + ":" + minutes + ":" + seconds + ' ' + msg.name + '  :  ' +
+      msg.messege));
+    });
+  });
+</script>
