@@ -1,21 +1,29 @@
-  <!-- card -->
-  <div class="container mt-5 text-center" style="margin-bottom: 500px;">
+  <!-- question -->
+  <div class="container mt-5 text-center" style="margin-bottom: 100px;">
     <div class="row">
       <div class="col">
         <div class="card">
           <div class="card-header">
-            <p><%= detail_info[0].question_uid %></p>
+            <br />
+            <h3 style="font-weight: bolder;"><%= question_info[0].question_title %></h3>
+            <div class="card-body">
+              <div class="btn-group">
+                <small class="text-muted" style="margin-right: 15px;"><%= question_info[0].users_users_uid %></small>
+                <small class="text-muted" style="margin-right: 15px;"> | </small>
+                <small class="text-muted" style="margin-right: 15px;"><%= question_info[0].question_date %></small>
+              </div>
+            </div>
           </div>
           <br />
           <div class="card-body">
-            <h5 class="card-title">
-              <p> <%= detail_info[0].question_title %> </p>
-            </h5>
-            <p class="card-text">
-              amount: <%= detail_info[0].question_content %>
+            <p class="card-body">
+              <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" style="width: 1000px; height: 500px;">
             </p>
+            <p class="card-text">
+              <%= question_info[0].question_content %> </p>
             <br />
           </div>
         </div>
       </div>
-  
+  </div>
+</div>

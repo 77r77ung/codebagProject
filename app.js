@@ -23,6 +23,7 @@ const multer = require('multer')
 var usersRouter = require('./src/routes/usersRoute');
 var mainRouter = require('./src/routes/mainRoute');
 var questionRouter = require('./src/routes/questionRoute');
+var answerRouter = require('./src/routes/answerRoute');
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mainRouter);
 app.use('/users', usersRouter);
 app.use('/question', questionRouter);
+app.use('/answer', answerRouter);
 
 // 304 관련
 app.get('/*', function(req, res, next){

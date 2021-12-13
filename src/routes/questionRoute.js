@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+
 const questionController = require('../controllers/questionController')
 
 /* Question 추가 */
 router.post('/addquestion', questionController.addQuestion);
+router.get('/addquestion/', questionController.addQuestionPage)
 
 /* Question 수정 */
 router.patch('/updatequestion/:question_uid', questionController.updateQuestion);
@@ -16,6 +18,6 @@ router.delete('/deletequestion/:question_uid', questionController.deleteQuestion
 // router.get('/listQuestion/:question_uid', questionController.listQuestion);
 
 /* Question 상세보기 */
-router.get('/detailquestion/:question_uid', questionController.detailQuestion);
+router.get('/detailquestion/:question_uid', questionController.detail);
 
 module.exports = router;
