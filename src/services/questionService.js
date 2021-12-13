@@ -12,9 +12,9 @@ exports.addQuestion = async(question_uid, question_title, question_content, ques
     }
 }
 
-exports.updateQuestion = async(question_title, question_content, question_date) => {
+exports.updateQuestion = async(question_title, question_content, question_date, question_uid) => {
     try{
-        let updateQuestion = await pool.query(questionQuery.updatequestion, [question_title, question_content, question_date])
+        let updateQuestion = await pool.query(questionQuery.updatequestion, [question_title, question_content, question_date, question_uid])
         return updateQuestion[0]
     }catch(err){
         console.log(err)

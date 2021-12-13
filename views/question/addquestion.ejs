@@ -1,0 +1,16 @@
+ <div class='w-50 container mt-5'>
+      <form id='frm' action='/question/addQuestion' method='post' >
+          <div class="col-auto mb-3">
+              <label class="col-form-label"> 제목 </label>
+              <input name='question_title' data-name='제목' type="text" class="form-control" placeholder="제목을 입력해주세요."required>
+          </div>
+          <div class="label">
+            <label for="exampleFormControlInput1">내용</label>
+            <input name='question_content' data-name='내용' type="text" class="form-control" placeholder="내용을 입력해주세요." style="padding-bottom: 300px; margin-bottom: 20px;" required>
+          </div>
+      </form>
+
+      <div class="col-auto">
+        <button type="submit" class="w-100 btn btn-info btn-lg" style="height: 50px; background-color:#18275C;">글 작성</button>
+      </div>
+</div>
