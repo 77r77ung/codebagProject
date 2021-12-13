@@ -25,6 +25,19 @@ var mainRouter = require('./src/routes/mainRoute');
 var questionRouter = require('./src/routes/questionRoute');
 
 var app = express();
+app.io = require('socket.io')();
+
+app.io.on('connection',(socket) => {
+  console.log('socket connect !');
+
+  socket.on('disconnect', () => {
+      console.log('socket disconnect !');
+  });
+
+  socket.on('chat-msg-1', (msg) => {
+    app.io.emit('chat-msg-2', msg);
+  });
+});
 
 // session 설정
 app.use(session({
@@ -42,6 +55,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public/', express.static('./public'));
 
 app.use('/', mainRouter);
 app.use('/users', usersRouter);

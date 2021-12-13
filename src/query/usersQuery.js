@@ -5,3 +5,6 @@ exports.signUp = 'insert into users (users_uid, users_password, users_nickname, 
 
 // signIn
 exports.signIn = 'select * from users where users_uid=? and users_password=?'
+
+//mypage
+exports.myPage = 'select * from users where users_uid=?'

@@ -1,0 +1,31 @@
+<div class="jumbotron jumbotron-fluid">
+  <form class="form-inline" style="display: inline-flex;">
+    <div class="display">CODEBAG</div>
+    <input class="form-control mr-1" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" style="width: 400px;">
+    <button class="btn btn-outline-light" type="submit">검색</button>
+  </form>
+</div>
+
+<div class="container">
+  <div style="margin-bottom: 2rem;">
+    <h1><%= mypage[0].users_nickname %></h1>
+    <h5><%= mypage[0].users_email %></h5>
+    <h5><%= mypage[0].users_genre %></h5>
+  </div>
+  <ul class="nav nav-tabs" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="pills-question-tab" data-toggle="pill" href="#pills-question" role="tab" aria-controls="pills-question" aria-selected="true">작성 질문</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-selected="false">작성 답</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">프로필 수정</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"></div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+  </div>
+<div>

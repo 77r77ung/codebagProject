@@ -1,17 +1,26 @@
+<div class="jumbotron jumbotron-fluid">
+  <form class="form-inline" style="display: inline-flex;">
+    <div class="display">CODEBAG</div>
+    <input class="form-control mr-1" type="search" placeholder="검색어를 입력해주세요." aria-label="Search" style="width: 400px;">
+    <button class="btn btn-outline-light" type="submit">검색</button>
+  </form>
+</div>
+
 <div class="container">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-newpost-tab" data-toggle="tab" href="#nav-newpost" role="tab" aria-controls="nav-newpost" aria-selected="true">최신순</a>
       <a class="nav-link" id="nav-hotpost-tab" data-toggle="tab" href="#nav-hotpost" role="tab" aria-controls="nav-hotpost" aria-selected="false">인기순</a>
+      <a class="nav-link" id="nav-chat-tab" data-toggle="tab" href="#nav-chat" role="tab" aria-controls="nav-chat" aria-selected="false">채팅</a>
     </div>
   </nav>
   <!-- TODO: 메뉴 버튼 추가할 것! -->
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content" id="nav-tabContent" >
     <div class="tab-pane fade show active" id="nav-newpost" role="tabpanel" aria-labelledby="nav-newpost-tab">
       <div class="container">
         <div class="row justify-content-center my-3">
           <% question_info.forEach(function(question_info){ %>
-            <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+            <div class="card col-lg-5 col-md-5 m-2 shadow-sm" style="padding-right: 0; padding-left: 0;">
               <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
               <div class="card-body">
                 <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
@@ -28,7 +37,7 @@
         <div class="row justify-content-center my-3">
           <% question_info.forEach(function(question_info){ %>
             <% if(question_info.views >= 100) {%>
-              <div class="card col-lg-5 col-md-5 m-2" style="padding-right: 0; padding-left: 0;">
+              <div class="card col-lg-5 col-md-5 m-2 shadow-sm" style="padding-right: 0; padding-left: 0;">
                 <img src="https://www.economist.com/sites/default/files/images/2015/09/blogs/economist-explains/code2.png" class="card-img-top" width="20" height="200" alt="...">
                 <div class="card-body">
                   <h5 class="card-title" style="color: black;"><a href="/question/detailquestion/<%= question_info.question_uid %>"><%= question_info.question_title %></a></h5>
@@ -43,3 +52,86 @@
     </div>
   </div>
 </div>
+
+<!-- <style>
+  .ul {
+    height: calc(100% - 38%);
+    overflow-y: scroll;
+    margin-right: 40px;
+  }
+  .li {
+    list-style-type : none;
+    padding: 10px;
+    font-weight: 300;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: break-spaces;
+  }
+  .p {
+    color: #296dc2;
+    font-weight: 300;
+    font-size: 30px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .input {
+    height: 50%;
+    width: 60%;
+    border-radius: 8px;
+    margin: 0px 10px 20px 10px;
+    box-shadow: inset 4px 4px 5px #eeeeee, inset -4px -4px 5px #ffffff !important;
+    border: 2px #646a73;
+    font-size: 14px;
+  }
+  
+  .button {
+    margin: 0px 10px 20px 10px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px #e9e9e9, -8px -8px 15px #ffffff;
+    height: 50%;
+    width: 20%;
+    border: 0px;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  .chatContainer {
+    margin: 5% auto;
+    position: relative;
+    width: 100%;
+    max-width: 70%;
+    box-shadow: 8px 8px 15px #e9e9e9, -8px -8px 15px #ffffff;
+    height: 80%;
+    border-radius: 20px;
+    padding: 5px 0px;
+  }
+  .inputContainer {
+    bottom: 0px;
+    border-radius: 20px;
+    position: absolute;
+    height: 15%;
+    width: 100%;
+    text-align: center;
+  }
+</style>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(() => {
+    const name = prompt('What is your name?');
+    const socket = io();
+  
+    $('form').submit(() => {
+      let msg = {name: name, messege:$('#msgInput').val()} 
+      socket.emit('chat-msg-1', msg);
+      $('#msgInput').val('');
+      console.log(msg);
+      return false;
+    });
+  
+    socket.on('chat-msg-2', (msg) => {
+      $('#messages').append($('<li class="chatli">').text(msg.name + '  :  ' +
+      msg.messege));
+    });
+  });
+</script> -->
